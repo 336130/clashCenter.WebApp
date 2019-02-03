@@ -1,0 +1,15 @@
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Debug\clashCenter.Business.csprojAssemblyReference.cache
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Debug\clashCenter.Business.csproj.CoreCompileInputs.cache
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\clashCenter.Business.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\clashCenter.Business.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Debug\clashCenter.Business.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Debug\clashCenter.Business.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\clashCenter.Dal.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\EntityFramework.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\clashCenter.Dal.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\clashCenter.Dal.dll.config
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\EntityFramework.xml
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Debug\clashCenter.Business.csproj.CopyComplete
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Newtonsoft.Json.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Newtonsoft.Json.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Newtonsoft.Json.xml

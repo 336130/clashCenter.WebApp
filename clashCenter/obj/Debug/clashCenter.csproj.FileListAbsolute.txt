@@ -1,0 +1,128 @@
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\clashCenter.dll.config
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\clashCenter.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\clashCenter.pdb
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\csc.exe
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\csc.exe.config
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\csc.rsp
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\csi.exe
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\csi.exe.config
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\csi.rsp
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.AppContext.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Console.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.IO.Compression.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.Claims.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.ValueTuple.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\vbc.exe
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\vbc.exe.config
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\vbc.rsp
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\VBCSCompiler.exe
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\Newtonsoft.Json.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\System.Net.Http.Formatting.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\System.Web.Http.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\System.Web.Http.WebHost.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\Newtonsoft.Json.xml
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\System.Net.Http.Formatting.xml
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\System.Web.Http.xml
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\System.Web.Http.WebHost.xml
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\obj\Debug\clashCenter.csprojAssemblyReference.cache
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\obj\Debug\clashCenter.csproj.CoreCompileInputs.cache
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\obj\Debug\clashCenter.csproj.CopyComplete
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\obj\Debug\clashCenter.dll
+C:\Users\Andrew Robert Norman\source\repos\clashCenter\clashCenter\obj\Debug\clashCenter.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\clashCenter.dll.config
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\clashCenter.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\clashCenter.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\csc.exe
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\csc.exe.config
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\csc.rsp
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\csi.exe
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\csi.exe.config
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\csi.rsp
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.AppContext.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Collections.Immutable.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Console.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.IO.Compression.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.IO.FileSystem.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.IO.Pipes.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Reflection.Metadata.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.AccessControl.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.Claims.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.ValueTuple.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Xml.XPath.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\vbc.exe
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\vbc.exe.config
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\vbc.rsp
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\VBCSCompiler.exe
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\roslyn\VBCSCompiler.exe.config
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Newtonsoft.Json.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Net.Http.Formatting.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Web.Http.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Web.Http.WebHost.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Newtonsoft.Json.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Net.Http.Formatting.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Web.Http.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Web.Http.WebHost.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\obj\Debug\clashCenter.csprojAssemblyReference.cache
+D:\Development\Github\clashCenterWebApp\clashCenter\obj\Debug\clashCenter.csproj.CoreCompileInputs.cache
+D:\Development\Github\clashCenterWebApp\clashCenter\obj\Debug\clashCenter.csproj.CopyComplete
+D:\Development\Github\clashCenterWebApp\clashCenter\obj\Debug\clashCenter.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\obj\Debug\clashCenter.pdb

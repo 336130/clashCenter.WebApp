@@ -1,0 +1,15 @@
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\clashCenter.Dal.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\clashCenter.Dal.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\obj\Debug\clashCenter.Dal.csprojAssemblyReference.cache
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\obj\Debug\clashCenter.Dal.csproj.CoreCompileInputs.cache
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\obj\Debug\clashCenter.Dal.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\obj\Debug\clashCenter.Dal.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\clashCenter.Dal.dll.config
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\EntityFramework.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\EntityFramework.xml
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\obj\Debug\clashCenter.Dal.csproj.CopyComplete
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\Newtonsoft.Json.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\Newtonsoft.Json.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Dal\bin\Debug\Newtonsoft.Json.xml
