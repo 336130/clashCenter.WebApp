@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace clashCenter.Dal.Models
+namespace clashCenter.Dal.Models.ClashResponse
 {
     public class Location
     {

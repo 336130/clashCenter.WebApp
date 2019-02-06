@@ -11,5 +11,56 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Clans">
+      <EntityTypeMapping TypeName="ClashCenterModel.Clan">
+        <MappingFragment StoreEntitySet="Clan">
+          <ScalarProperty Name="FirstPolled" ColumnName="FirstPolled" />
+          <ScalarProperty Name="ClanTag" ColumnName="ClanTag" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanHistories">
+      <EntityTypeMapping TypeName="ClashCenterModel.ClanHistory">
+        <MappingFragment StoreEntitySet="ClanHistory">
+          <ScalarProperty Name="DatePolled" ColumnName="DatePolled" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsWarLogPublic" ColumnName="IsWarLogPublic" />
+          <ScalarProperty Name="WarLosses" ColumnName="WarLosses" />
+          <ScalarProperty Name="WarTies" ColumnName="WarTies" />
+          <ScalarProperty Name="WarWins" ColumnName="WarWins" />
+          <ScalarProperty Name="WarWinStreak" ColumnName="WarWinStreak" />
+          <ScalarProperty Name="WarFrequency" ColumnName="WarFrequency" />
+          <ScalarProperty Name="RequiredTrophies" ColumnName="RequiredTrophies" />
+          <ScalarProperty Name="ClanType" ColumnName="ClanType" />
+          <ScalarProperty Name="MemberCount" ColumnName="MemberCount" />
+          <ScalarProperty Name="ClanVersusPoints" ColumnName="ClanVersusPoints" />
+          <ScalarProperty Name="ClanPoints" ColumnName="ClanPoints" />
+          <ScalarProperty Name="ClanLevel" ColumnName="ClanLevel" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ClanName" ColumnName="ClanName" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+          <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanHistoryMembers">
+      <EntityTypeMapping TypeName="ClashCenterModel.ClanHistoryMember">
+        <MappingFragment StoreEntitySet="ClanHistoryMember">
+          <ScalarProperty Name="DonationsRecieved" ColumnName="DonationsRecieved" />
+          <ScalarProperty Name="Donations" ColumnName="Donations" />
+          <ScalarProperty Name="PreviousClanRank" ColumnName="PreviousClanRank" />
+          <ScalarProperty Name="ClanRank" ColumnName="ClanRank" />
+          <ScalarProperty Name="ClanRole" ColumnName="ClanRole" />
+          <ScalarProperty Name="VersusTrophies" ColumnName="VersusTrophies" />
+          <ScalarProperty Name="Trophies" ColumnName="Trophies" />
+          <ScalarProperty Name="ExpLevel" ColumnName="ExpLevel" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberTag" ColumnName="MemberTag" />
+          <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
+          <ScalarProperty Name="ClanHistoryMemberID" ColumnName="ClanHistoryMemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

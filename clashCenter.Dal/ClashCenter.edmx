@@ -4,7 +4,55 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ClashCenterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ClashCenterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clan">
+          <Key>
+            <PropertyRef Name="ClanID" />
+          </Key>
+          <Property Name="ClanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClanTag" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstPolled" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClanHistory">
+          <Key>
+            <PropertyRef Name="ClanHistoryID" />
+          </Key>
+          <Property Name="ClanHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClanID" Type="int" />
+          <Property Name="ClanName" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="ClanLevel" Type="int" Nullable="false" />
+          <Property Name="ClanPoints" Type="int" Nullable="false" />
+          <Property Name="ClanVersusPoints" Type="int" Nullable="false" />
+          <Property Name="MemberCount" Type="int" Nullable="false" />
+          <Property Name="ClanType" Type="varchar" MaxLength="1000" />
+          <Property Name="RequiredTrophies" Type="int" Nullable="false" />
+          <Property Name="WarFrequency" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="WarWinStreak" Type="int" Nullable="false" />
+          <Property Name="WarWins" Type="int" Nullable="false" />
+          <Property Name="WarTies" Type="int" Nullable="false" />
+          <Property Name="WarLosses" Type="int" Nullable="false" />
+          <Property Name="IsWarLogPublic" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DatePolled" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClanHistoryMember">
+          <Key>
+            <PropertyRef Name="ClanHistoryMemberID" />
+          </Key>
+          <Property Name="ClanHistoryMemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClanHistoryID" Type="int" />
+          <Property Name="MemberTag" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MemberName" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="ExpLevel" Type="int" Nullable="false" />
+          <Property Name="Trophies" Type="int" Nullable="false" />
+          <Property Name="VersusTrophies" Type="int" Nullable="false" />
+          <Property Name="ClanRole" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ClanRank" Type="int" Nullable="false" />
+          <Property Name="PreviousClanRank" Type="int" Nullable="false" />
+          <Property Name="Donations" Type="int" Nullable="false" />
+          <Property Name="DonationsRecieved" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Locations">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,11 +62,61 @@
           <Property Name="IsCountry" Type="bit" Nullable="false" />
           <Property Name="CountryCode" Type="varchar" MaxLength="5" />
         </EntityType>
+        <Association Name="FK__ClanHisto__ClanH__0E6E26BF">
+          <End Role="ClanHistory" Type="Self.ClanHistory" Multiplicity="0..1" />
+          <End Role="ClanHistoryMember" Type="Self.ClanHistoryMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClanHistory">
+              <PropertyRef Name="ClanHistoryID" />
+            </Principal>
+            <Dependent Role="ClanHistoryMember">
+              <PropertyRef Name="ClanHistoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClanHisto__ClanI__08B54D69">
+          <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+          <End Role="ClanHistory" Type="Self.ClanHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clan">
+              <PropertyRef Name="ClanID" />
+            </Principal>
+            <Dependent Role="ClanHistory">
+              <PropertyRef Name="ClanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClanHisto__Locat__09A971A2">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="ClanHistory" Type="Self.ClanHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ClanHistory">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ClashCenterModelStoreContainer">
+          <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClanHistory" EntityType="Self.ClanHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClanHistoryMember" EntityType="Self.ClanHistoryMember" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ClanHisto__ClanH__0E6E26BF" Association="Self.FK__ClanHisto__ClanH__0E6E26BF">
+            <End Role="ClanHistory" EntitySet="ClanHistory" />
+            <End Role="ClanHistoryMember" EntitySet="ClanHistoryMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClanHisto__ClanI__08B54D69" Association="Self.FK__ClanHisto__ClanI__08B54D69">
+            <End Role="Clan" EntitySet="Clan" />
+            <End Role="ClanHistory" EntitySet="ClanHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClanHisto__Locat__09A971A2" Association="Self.FK__ClanHisto__Locat__09A971A2">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="ClanHistory" EntitySet="ClanHistory" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ClashCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -30,10 +128,115 @@
           <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsCountry" Type="Boolean" Nullable="false" />
           <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClanHistories" Relationship="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4" FromRole="Location" ToRole="ClanHistory" />
         </EntityType>
         <EntityContainer Name="ClashCenterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Clans" EntityType="ClashCenterModel.Clan" />
+          <EntitySet Name="ClanHistories" EntityType="ClashCenterModel.ClanHistory" />
+          <AssociationSet Name="FK__ClanHisto__ClanI__4D94879B" Association="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B">
+            <End Role="Clan" EntitySet="Clans" />
+            <End Role="ClanHistory" EntitySet="ClanHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClanHisto__Locat__4E88ABD4" Association="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="ClanHistory" EntitySet="ClanHistories" />
+          </AssociationSet>
+          <EntitySet Name="ClanHistoryMembers" EntityType="ClashCenterModel.ClanHistoryMember" />
+          <AssociationSet Name="FK__ClanHisto__ClanH__52593CB8" Association="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8">
+            <End Role="ClanHistory" EntitySet="ClanHistories" />
+            <End Role="ClanHistoryMember" EntitySet="ClanHistoryMembers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Clan">
+          <Key>
+            <PropertyRef Name="ClanID" />
+          </Key>
+          <Property Name="ClanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClanTag" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FirstPolled" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="ClanHistories" Relationship="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B" FromRole="Clan" ToRole="ClanHistory" />
+        </EntityType>
+        <EntityType Name="ClanHistory">
+          <Key>
+            <PropertyRef Name="ClanHistoryID" />
+          </Key>
+          <Property Name="ClanHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClanID" Type="Int32" />
+          <Property Name="ClanName" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="ClanLevel" Type="Int32" Nullable="false" />
+          <Property Name="ClanPoints" Type="Int32" Nullable="false" />
+          <Property Name="ClanVersusPoints" Type="Int32" Nullable="false" />
+          <Property Name="MemberCount" Type="Int32" Nullable="false" />
+          <Property Name="ClanType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RequiredTrophies" Type="Int32" Nullable="false" />
+          <Property Name="WarFrequency" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="WarWinStreak" Type="Int32" Nullable="false" />
+          <Property Name="WarWins" Type="Int32" Nullable="false" />
+          <Property Name="WarTies" Type="Int32" Nullable="false" />
+          <Property Name="WarLosses" Type="Int32" Nullable="false" />
+          <Property Name="IsWarLogPublic" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clan" Relationship="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B" FromRole="ClanHistory" ToRole="Clan" />
+          <NavigationProperty Name="Location" Relationship="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4" FromRole="ClanHistory" ToRole="Location" />
+          <NavigationProperty Name="ClanHistoryMembers" Relationship="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8" FromRole="ClanHistory" ToRole="ClanHistoryMember" />
+          <Property Name="DatePolled" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <Association Name="FK__ClanHisto__ClanI__4D94879B">
+          <End Type="ClashCenterModel.Clan" Role="Clan" Multiplicity="0..1" />
+          <End Type="ClashCenterModel.ClanHistory" Role="ClanHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clan">
+              <PropertyRef Name="ClanID" />
+            </Principal>
+            <Dependent Role="ClanHistory">
+              <PropertyRef Name="ClanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClanHisto__Locat__4E88ABD4">
+          <End Type="ClashCenterModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="ClashCenterModel.ClanHistory" Role="ClanHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ClanHistory">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ClanHistoryMember">
+          <Key>
+            <PropertyRef Name="ClanHistoryMemberID" />
+          </Key>
+          <Property Name="ClanHistoryMemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClanHistoryID" Type="Int32" />
+          <Property Name="MemberTag" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MemberName" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ExpLevel" Type="Int32" Nullable="false" />
+          <Property Name="Trophies" Type="Int32" Nullable="false" />
+          <Property Name="VersusTrophies" Type="Int32" Nullable="false" />
+          <Property Name="ClanRole" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClanRank" Type="Int32" Nullable="false" />
+          <Property Name="PreviousClanRank" Type="Int32" Nullable="false" />
+          <Property Name="Donations" Type="Int32" Nullable="false" />
+          <Property Name="DonationsRecieved" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClanHistory" Relationship="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8" FromRole="ClanHistoryMember" ToRole="ClanHistory" />
+        </EntityType>
+        <Association Name="FK__ClanHisto__ClanH__52593CB8">
+          <End Type="ClashCenterModel.ClanHistory" Role="ClanHistory" Multiplicity="0..1" />
+          <End Type="ClashCenterModel.ClanHistoryMember" Role="ClanHistoryMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClanHistory">
+              <PropertyRef Name="ClanHistoryID" />
+            </Principal>
+            <Dependent Role="ClanHistoryMember">
+              <PropertyRef Name="ClanHistoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47,6 +250,57 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsCountry" ColumnName="IsCountry" />
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clans">
+            <EntityTypeMapping TypeName="ClashCenterModel.Clan">
+              <MappingFragment StoreEntitySet="Clan">
+                <ScalarProperty Name="FirstPolled" ColumnName="FirstPolled" />
+                <ScalarProperty Name="ClanTag" ColumnName="ClanTag" />
+                <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClanHistories">
+            <EntityTypeMapping TypeName="ClashCenterModel.ClanHistory">
+              <MappingFragment StoreEntitySet="ClanHistory">
+                <ScalarProperty Name="DatePolled" ColumnName="DatePolled" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsWarLogPublic" ColumnName="IsWarLogPublic" />
+                <ScalarProperty Name="WarLosses" ColumnName="WarLosses" />
+                <ScalarProperty Name="WarTies" ColumnName="WarTies" />
+                <ScalarProperty Name="WarWins" ColumnName="WarWins" />
+                <ScalarProperty Name="WarWinStreak" ColumnName="WarWinStreak" />
+                <ScalarProperty Name="WarFrequency" ColumnName="WarFrequency" />
+                <ScalarProperty Name="RequiredTrophies" ColumnName="RequiredTrophies" />
+                <ScalarProperty Name="ClanType" ColumnName="ClanType" />
+                <ScalarProperty Name="MemberCount" ColumnName="MemberCount" />
+                <ScalarProperty Name="ClanVersusPoints" ColumnName="ClanVersusPoints" />
+                <ScalarProperty Name="ClanPoints" ColumnName="ClanPoints" />
+                <ScalarProperty Name="ClanLevel" ColumnName="ClanLevel" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ClanName" ColumnName="ClanName" />
+                <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+                <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClanHistoryMembers">
+            <EntityTypeMapping TypeName="ClashCenterModel.ClanHistoryMember">
+              <MappingFragment StoreEntitySet="ClanHistoryMember">
+                <ScalarProperty Name="DonationsRecieved" ColumnName="DonationsRecieved" />
+                <ScalarProperty Name="Donations" ColumnName="Donations" />
+                <ScalarProperty Name="PreviousClanRank" ColumnName="PreviousClanRank" />
+                <ScalarProperty Name="ClanRank" ColumnName="ClanRank" />
+                <ScalarProperty Name="ClanRole" ColumnName="ClanRole" />
+                <ScalarProperty Name="VersusTrophies" ColumnName="VersusTrophies" />
+                <ScalarProperty Name="Trophies" ColumnName="Trophies" />
+                <ScalarProperty Name="ExpLevel" ColumnName="ExpLevel" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MemberTag" ColumnName="MemberTag" />
+                <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
+                <ScalarProperty Name="ClanHistoryMemberID" ColumnName="ClanHistoryMemberID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

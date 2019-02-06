@@ -46,6 +46,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clan.cs">
+      <DependentUpon>ClashCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClanHistory.cs">
+      <DependentUpon>ClashCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClanHistoryMember.cs">
+      <DependentUpon>ClashCenter.tt</DependentUpon>
+    </Compile>
     <Compile Include="ClashAccessManager.cs" />
     <Compile Include="ClashCenter.Context.cs">
       <AutoGen>True</AutoGen>
@@ -75,10 +85,12 @@
       <DependentUpon>ClashCenter.tt</DependentUpon>
     </Compile>
     <Compile Include="LocationManager.cs" />
-    <Compile Include="Models\Badge.cs" />
-    <Compile Include="Models\Clan.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\ClanList.cs" />
+    <Compile Include="Models\ClashResponse\Badge.cs" />
+    <Compile Include="Models\ClashResponse\Clan.cs" />
+    <Compile Include="Models\ClashResponse\ClanMembers.cs" />
+    <Compile Include="Models\ClashResponse\ClanSearchResultsClan.cs" />
+    <Compile Include="Models\ClashResponse\Location.cs" />
+    <Compile Include="Models\ClashResponse\ClanSearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace clashCenter.DAL.Models
+namespace clashCenter.Dal.Models.ClashResponse
 {
-    public class Clan
+    public class ClanSearchResultsClan
     {
       public string Tag { get; set; }
       public string Name { get; set; }
@@ -16,5 +16,6 @@ namespace clashCenter.DAL.Models
       public int ClanPoints { get; set; }
       public int ClanVersusPoints { get; set; }
       public int Members { get; set; }
+        public Badge BadgeURLs { get; set; }
     }
 }

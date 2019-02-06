@@ -1,11 +1,10 @@
-﻿using clashCenter.DAL.Models;
-using clashCenter.Dal;
+﻿using clashCenter.Dal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using clashCenter.Dal.Models;
+using clashCenter.Dal.Models.ClashResponse;
 
 namespace clashCenter.Business
 {
@@ -16,9 +15,9 @@ namespace clashCenter.Business
 
         }
 
-        public ClanList SearchForClan(string term)
+        public ClanSearchResults SearchForClan(string term)
         {
-            ClanList retVal = new ClanList();
+            ClanSearchResults retVal = new ClanSearchResults();
             var accessManager = new ClashAccessManager();
             retVal = accessManager.SearchForClans(term); 
             return retVal;

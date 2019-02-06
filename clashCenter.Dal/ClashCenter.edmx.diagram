@@ -6,6 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="1c3142b25ec042c08360d626824c2866" Name="Diagram1">
         <EntityTypeShape EntityType="ClashCenterModel.Location" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClashCenterModel.Clan" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="ClashCenterModel.ClanHistory" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B" />
+        <AssociationConnector Association="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4" />
+        <EntityTypeShape EntityType="ClashCenterModel.ClanHistoryMember" Width="1.5" PointX="5.25" PointY="1.375" />
+        <AssociationConnector Association="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
