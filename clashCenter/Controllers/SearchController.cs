@@ -13,9 +13,15 @@ namespace clashCenter.Controllers
     public class SearchController : ApiController
     {
         [HttpPost]
-        public ClanSearchResults SearchForClan ([FromBody]ClanSearch searchParams)
+        public ClanSearchResults SearchForClan (ClanSearch searchParams)
         {
-            var retVal = new BusinessManager().SearchForClan(searchParams.name);
+            var retVal = new BusinessManager().SearchForClan(searchParams.name,
+                                                            searchParams.warFrequency,
+                                                            searchParams.minMembers,
+                                                            searchParams.maxMembers,
+                                                            searchParams.minClanPoints,
+                                                            searchParams.minClanLevel,
+                                                            searchParams.location);
             return retVal;
         }
     }

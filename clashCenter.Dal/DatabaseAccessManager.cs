@@ -18,6 +18,7 @@ namespace clashCenter.Dal
             }
         }
 
+        #region Create
         public void SaveClanInfo(Models.ClashResponse.Clan clan)
         {
             using (var dbContext = new ClashCenterEntities())
@@ -83,5 +84,16 @@ namespace clashCenter.Dal
                 }
             }
         }
+        #endregion
+
+        #region Read
+        public List<Location> GetLocations()
+        {
+            using (var dbContext = new ClashCenterEntities())
+            {
+                return dbContext.Locations.ToList();
+            }
+        }
+        #endregion
     }
 }

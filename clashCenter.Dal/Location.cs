@@ -24,6 +24,7 @@ namespace clashCenter.Dal
         public string Name { get; set; }
         public bool IsCountry { get; set; }
         public string CountryCode { get; set; }
+        public int LocationID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClanHistory> ClanHistories { get; set; }

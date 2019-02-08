@@ -9,6 +9,7 @@
     <Property Name="IsCountry" Type="Boolean" Nullable="false" />
     <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ClanHistories" Relationship="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4" FromRole="Location" ToRole="ClanHistory" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityContainer Name="ClashCenterEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Locations" EntityType="Self.Location" />

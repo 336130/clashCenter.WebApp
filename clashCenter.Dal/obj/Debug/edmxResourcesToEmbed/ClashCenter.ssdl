@@ -53,11 +53,12 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationID" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="IsCountry" Type="bit" Nullable="false" />
     <Property Name="CountryCode" Type="varchar" MaxLength="5" />
   </EntityType>
-  <Association Name="FK__ClanHisto__ClanH__0E6E26BF">
+  <Association Name="FK__ClanHisto__ClanH__3B40CD36">
     <End Role="ClanHistory" Type="Self.ClanHistory" Multiplicity="0..1" />
     <End Role="ClanHistoryMember" Type="Self.ClanHistoryMember" Multiplicity="*" />
     <ReferentialConstraint>
@@ -69,7 +70,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ClanHisto__ClanI__08B54D69">
+  <Association Name="FK__ClanHisto__ClanI__3587F3E0">
     <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
     <End Role="ClanHistory" Type="Self.ClanHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -81,33 +82,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ClanHisto__Locat__09A971A2">
-    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
-    <End Role="ClanHistory" Type="Self.ClanHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Locations">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ClanHistory">
-        <PropertyRef Name="LocationID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__ClanHisto__Locat__367C1819' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__ClanHisto__Locat__367C1819" />-->
   <EntityContainer Name="ClashCenterModelStoreContainer">
     <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClanHistory" EntityType="Self.ClanHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClanHistoryMember" EntityType="Self.ClanHistoryMember" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ClanHisto__ClanH__0E6E26BF" Association="Self.FK__ClanHisto__ClanH__0E6E26BF">
+    <AssociationSet Name="FK__ClanHisto__ClanH__3B40CD36" Association="Self.FK__ClanHisto__ClanH__3B40CD36">
       <End Role="ClanHistory" EntitySet="ClanHistory" />
       <End Role="ClanHistoryMember" EntitySet="ClanHistoryMember" />
     </AssociationSet>
-    <AssociationSet Name="FK__ClanHisto__ClanI__08B54D69" Association="Self.FK__ClanHisto__ClanI__08B54D69">
+    <AssociationSet Name="FK__ClanHisto__ClanI__3587F3E0" Association="Self.FK__ClanHisto__ClanI__3587F3E0">
       <End Role="Clan" EntitySet="Clan" />
-      <End Role="ClanHistory" EntitySet="ClanHistory" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ClanHisto__Locat__09A971A2" Association="Self.FK__ClanHisto__Locat__09A971A2">
-      <End Role="Locations" EntitySet="Locations" />
       <End Role="ClanHistory" EntitySet="ClanHistory" />
     </AssociationSet>
   </EntityContainer>

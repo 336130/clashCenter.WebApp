@@ -102,14 +102,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResponseObjects\LocationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RecieveObjects\ClanSearch.cs" />
-    <Compile Include="Models\ResponseObjects\PlayerNameResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

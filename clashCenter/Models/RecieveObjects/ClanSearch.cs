@@ -13,5 +13,6 @@ namespace clashCenter.Web.Models.RecieveObjects
         public int maxMembers { get; set; }
         public int minClanPoints { get; set; }
         public int minClanLevel { get; set; }
+        public int location { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using clashCenter.Dal.Models.ClashResponse;
+﻿using clashCenter.Dal.Models;
+using clashCenter.Dal.Models.ClashResponse;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,15 @@ namespace clashCenter.Dal
         private string _clanSearchKey = ConfigurationManager.AppSettings["ClanSearchKey"];
 
         #region clans
-        public ClanSearchResults SearchForClans(string name)
+        public ClanSearchResults SearchForClans(List<Parameter> par)
         {
-            string url = "clans" + FormatParameters(new string[] { "name=" + name });
+            string url = "clans" + FormatParameters(par.Select(p => p.key + p.value).ToArray());
             var responseFromServer = MakeWebRequest(url, _clanSearchKey);
             var retVal =  JsonConvert.DeserializeObject<ClanSearchResults>(responseFromServer);
             //GetAndSaveFullClanDetails(retVal.items);
             return retVal;
         }
+        #endregion
 
         #region SaveDetails
         public void GetAndSaveFullClanDetails(List<ClanSearchResultsClan> clans)
@@ -37,7 +39,6 @@ namespace clashCenter.Dal
                 GetAndSaveFullClanDetails(clan);
             }
         }
-        #endregion
 
         public void GetAndSaveFullClanDetails(ClanSearchResultsClan clan)
         {

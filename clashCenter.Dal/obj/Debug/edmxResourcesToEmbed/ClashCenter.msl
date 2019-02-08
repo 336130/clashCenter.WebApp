@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Locations">
       <EntityTypeMapping TypeName="ClashCenterModel.Location">
         <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="IsCountry" ColumnName="IsCountry" />

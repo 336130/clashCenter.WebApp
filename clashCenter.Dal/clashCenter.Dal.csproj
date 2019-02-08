@@ -91,6 +91,7 @@
     <Compile Include="Models\ClashResponse\ClanSearchResultsClan.cs" />
     <Compile Include="Models\ClashResponse\Location.cs" />
     <Compile Include="Models\ClashResponse\ClanSearchResults.cs" />
+    <Compile Include="Models\Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
