@@ -53,6 +53,19 @@
           <Property Name="Donations" Type="int" Nullable="false" />
           <Property Name="DonationsRecieved" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Favorites">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="FavoriteType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClashType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClashTargetID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreaatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Pinned" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Locations">
           <Key>
             <PropertyRef Name="ID" />
@@ -94,6 +107,7 @@ warning 6035: The relationship 'FK__ClanHisto__Locat__367C1819' has columns that
           <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClanHistory" EntityType="Self.ClanHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClanHistoryMember" EntityType="Self.ClanHistoryMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorites" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__ClanHisto__ClanH__3B40CD36" Association="Self.FK__ClanHisto__ClanH__3B40CD36">
             <End Role="ClanHistory" EntitySet="ClanHistory" />
@@ -136,6 +150,7 @@ warning 6035: The relationship 'FK__ClanHisto__Locat__367C1819' has columns that
             <End Role="ClanHistory" EntitySet="ClanHistories" />
             <End Role="ClanHistoryMember" EntitySet="ClanHistoryMembers" />
           </AssociationSet>
+          <EntitySet Name="Favorites" EntityType="ClashCenterModel.Favorite" />
         </EntityContainer>
         <EntityType Name="Clan">
           <Key>
@@ -226,6 +241,19 @@ warning 6035: The relationship 'FK__ClanHisto__Locat__367C1819' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FavoriteType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClashType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClashTargetID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreaatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Pinned" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -291,6 +319,20 @@ warning 6035: The relationship 'FK__ClanHisto__Locat__367C1819' has columns that
                 <ScalarProperty Name="MemberTag" ColumnName="MemberTag" />
                 <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
                 <ScalarProperty Name="ClanHistoryMemberID" ColumnName="ClanHistoryMemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorites">
+            <EntityTypeMapping TypeName="ClashCenterModel.Favorite">
+              <MappingFragment StoreEntitySet="Favorites">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Pinned" ColumnName="Pinned" />
+                <ScalarProperty Name="CreaatedDate" ColumnName="CreaatedDate" />
+                <ScalarProperty Name="ClashTargetID" ColumnName="ClashTargetID" />
+                <ScalarProperty Name="ClashType" ColumnName="ClashType" />
+                <ScalarProperty Name="FavoriteType" ColumnName="FavoriteType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

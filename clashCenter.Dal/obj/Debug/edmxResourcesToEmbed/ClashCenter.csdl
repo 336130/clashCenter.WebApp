@@ -28,6 +28,7 @@
       <End Role="ClanHistory" EntitySet="ClanHistories" />
       <End Role="ClanHistoryMember" EntitySet="ClanHistoryMembers" />
     </AssociationSet>
+    <EntitySet Name="Favorites" EntityType="ClashCenterModel.Favorite" />
   </EntityContainer>
   <EntityType Name="Clan">
     <Key>
@@ -118,4 +119,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="FavoriteID" />
+    </Key>
+    <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FavoriteType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClashType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClashTargetID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreaatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Pinned" Type="Boolean" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

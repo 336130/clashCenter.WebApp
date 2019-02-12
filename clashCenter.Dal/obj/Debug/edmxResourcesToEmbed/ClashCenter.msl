@@ -63,5 +63,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Favorites">
+      <EntityTypeMapping TypeName="ClashCenterModel.Favorite">
+        <MappingFragment StoreEntitySet="Favorites">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Pinned" ColumnName="Pinned" />
+          <ScalarProperty Name="CreaatedDate" ColumnName="CreaatedDate" />
+          <ScalarProperty Name="ClashTargetID" ColumnName="ClashTargetID" />
+          <ScalarProperty Name="ClashType" ColumnName="ClashType" />
+          <ScalarProperty Name="FavoriteType" ColumnName="FavoriteType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

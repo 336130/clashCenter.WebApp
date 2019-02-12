@@ -17,7 +17,7 @@ namespace clashCenter.Business
 
         }
 
-        public ClanSearchResults SearchForClan(string name,string warFrequency, int minMembers,int maxMembers, int minClanPoints, int minClanLevel, int location)
+        public ClanSearchResults SearchForClan(string name,string warFrequency, int minMembers,int maxMembers, int minClanPoints, int minClanLevel, int location,string userId)
         {
             List<Parameter> par = new List<Parameter>();
             par.Add(new Parameter { key = "name=", value = name });
@@ -30,12 +30,40 @@ namespace clashCenter.Business
 
             par.RemoveAll(p => string.IsNullOrWhiteSpace(p.value) || p.value == "0");
 
-            return new ClashAccessManager().SearchForClans(par); 
+            return new ClashAccessManager().SearchForClans(par, userId); 
         }
-
+        #region Locations
         public List<Location> GetLocations()
         {
             return new DatabaseAccessManager().GetLocations();
         }
+        #endregion
+
+        #region Account
+        public string CreateUser(string username, string password)
+        {
+            return new AccountManager().CreateUser(username, password);
+        }
+
+        public string LoginUser(string email, string password)
+        {
+            return new AccountManager().LoginUser(email, password);
+        }
+
+        public bool LogoutUser(string token)
+        {
+            return new AccountManager().LogoutUser(token);
+        }
+
+        public string GetUsernameFromToken(string token)
+        {
+            return new AccountManager().GetUserIDFromToken(token);
+        }
+
+        public string UpdateTokenExpiry(string token)
+        {
+            return new AccountManager().UpdateTokenExpiry(token);
+        }
+        #endregion
     }
 }

@@ -48,6 +48,19 @@
     <Property Name="Donations" Type="int" Nullable="false" />
     <Property Name="DonationsRecieved" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Favorites">
+    <Key>
+      <PropertyRef Name="FavoriteID" />
+    </Key>
+    <Property Name="FavoriteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="128" />
+    <Property Name="FavoriteType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClashType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClashTargetID" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="CreaatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Pinned" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Locations">
     <Key>
       <PropertyRef Name="ID" />
@@ -89,6 +102,7 @@ warning 6035: The relationship 'FK__ClanHisto__Locat__367C1819' has columns that
     <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClanHistory" EntityType="Self.ClanHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClanHistoryMember" EntityType="Self.ClanHistoryMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Favorites" EntityType="Self.Favorites" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__ClanHisto__ClanH__3B40CD36" Association="Self.FK__ClanHisto__ClanH__3B40CD36">
       <End Role="ClanHistory" EntitySet="ClanHistory" />
