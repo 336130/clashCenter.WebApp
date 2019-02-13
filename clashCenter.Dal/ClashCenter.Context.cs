@@ -30,5 +30,6 @@ namespace clashCenter.Dal
         public virtual DbSet<ClanHistory> ClanHistories { get; set; }
         public virtual DbSet<ClanHistoryMember> ClanHistoryMembers { get; set; }
         public virtual DbSet<Favorite> Favorites { get; set; }
+        public virtual DbSet<CurrentFavorite> CurrentFavorites { get; set; }
     }
 }

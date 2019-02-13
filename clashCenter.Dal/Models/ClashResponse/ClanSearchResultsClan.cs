@@ -17,5 +17,7 @@ namespace clashCenter.Dal.Models.ClashResponse
       public int ClanVersusPoints { get; set; }
       public int Members { get; set; }
         public Badge BadgeURLs { get; set; }
+        public bool IsFavorite { get; set; }
+        public bool IsInterest { get; set; }
     }
 }

@@ -75,6 +75,13 @@ namespace clashCenter.Dal
             return retVal;
         }
 
+        public string GetUsernameFromUserId(string userId)
+        {
+            var manager = GetUserManager();
+            return manager.FindById(userId)?.UserName;
+
+        }
+
         public void DisposeOfOldTokens()
         {
             Task.Run(() => {
@@ -84,6 +91,11 @@ namespace clashCenter.Dal
                     TokenCache.Tokens.Remove(token);
                 }
             });
+        }
+
+        public List<Favorite> GetUserDetails(string userId)
+        {
+            return new DatabaseAccessManager().GetFavorites(userId);
         }
 
         public string UpdateTokenExpiry(string token)

@@ -30,8 +30,35 @@ namespace clashCenter.Business
 
             par.RemoveAll(p => string.IsNullOrWhiteSpace(p.value) || p.value == "0");
 
-            return new ClashAccessManager().SearchForClans(par, userId); 
+            return new ClashAccessManager().SearchForClans(par, userId);
         }
+
+        public Dal.Models.ClashResponse.Clan GetClan(string clanTag)
+        {
+            return new ClashAccessManager().GetAndSaveFullClanDetails(clanTag);
+        }
+
+        #region Favorites
+        public bool AddFavorite(string tag, string userId)
+        {
+            return new DatabaseAccessManager().AddFavorite(tag, userId);
+        }
+
+        public bool AddInterest(string tag, string userId)
+        {
+            return new DatabaseAccessManager().AddInterest(tag, userId);
+        }
+        public bool RemoveFavorite(string tag, string userId)
+        {
+            return new DatabaseAccessManager().RemoveFavorite(tag, userId);
+        }
+
+        public bool RemoveInterest(string tag, string userId)
+        {
+            return new DatabaseAccessManager().RemoveInterest(tag, userId);
+        }
+        #endregion
+
         #region Locations
         public List<Location> GetLocations()
         {
@@ -55,14 +82,24 @@ namespace clashCenter.Business
             return new AccountManager().LogoutUser(token);
         }
 
-        public string GetUsernameFromToken(string token)
+        public string GetUserIdFromToken(string token)
         {
             return new AccountManager().GetUserIDFromToken(token);
+        }
+
+        public string GetUsernameFromUserId(string userId)
+        {
+            return new AccountManager().GetUsernameFromUserId(userId);
         }
 
         public string UpdateTokenExpiry(string token)
         {
             return new AccountManager().UpdateTokenExpiry(token);
+        }
+
+        public List<Favorite> GetUserDetails(string token)
+        {
+            return new AccountManager().GetUserDetails(token);
         }
         #endregion
     }

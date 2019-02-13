@@ -1,5 +1,6 @@
 ﻿using clashCenter.Business;
 using clashCenter.Dal.Models.ClashResponse;
+using clashCenter.Helpers;
 using clashCenter.Web.Models.RecieveObjects;
 using System;
 using System.Collections.Generic;
@@ -13,23 +14,20 @@ namespace clashCenter.Controllers
 {
     public class SearchController : ApiController
     {
-        private BusinessManager _businessManager;
+        private BusinessManager _businessManager { get { return new BusinessManager(); } }
 
         [HttpPost]
-        public ClanSearchResults SearchForClan (ClanSearch searchParams)
+        public ClanSearchResults SearchForClan(ClanSearch searchParams)
         {
-            _businessManager = new BusinessManager();
-            var auth = HttpContext.Current.Request.Headers["Authorization"];
-            var userId = _businessManager.GetUsernameFromToken(auth.Replace("Bearer ",""));
-            var retVal =_businessManager.SearchForClan(searchParams.name,
-                                                            searchParams.warFrequency,
-                                                            searchParams.minMembers,
-                                                            searchParams.maxMembers,
-                                                            searchParams.minClanPoints,
-                                                            searchParams.minClanLevel,
-                                                            searchParams.location,
-                                                            userId
-                                                            );
+            var retVal = _businessManager.SearchForClan(searchParams.name,
+                                                   searchParams.warFrequency,
+                                                   searchParams.minMembers,
+                                                   searchParams.maxMembers,
+                                                   searchParams.minClanPoints,
+                                                   searchParams.minClanLevel,
+                                                   searchParams.location,
+                                                   UserHelper.UserId
+                                                   );
             return retVal;
         }
     }

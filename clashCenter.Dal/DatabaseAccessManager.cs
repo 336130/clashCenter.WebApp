@@ -38,11 +38,12 @@ namespace clashCenter.Dal
                 //location data is abit screwy because of location import
                 var location = _locations.FirstOrDefault(l => l.Name == clan.Location?.name);
 
+                
                 var clanHistory = dbContext.ClanHistories.Add(new ClanHistory
                 {
                     ClanID = existingClan.ClanID,
                     ClanName = clan.Name,
-                    LocationID = location?.ID,
+                    LocationID = location?.LocationID,
                     ClanLevel = clan.ClanLevel,
                     ClanPoints = clan.ClanPoints,
                     ClanVersusPoints = clan.ClanVersusPoints,
@@ -92,6 +93,91 @@ namespace clashCenter.Dal
             using (var dbContext = new ClashCenterEntities())
             {
                 return dbContext.Locations.ToList();
+            }
+        }
+
+        public List<Favorite> GetFavorites(string userId)
+        {
+            using (var dbContext = new ClashCenterEntities())
+            {
+                return dbContext.Favorites.Where(f => f.UserID == userId && f.Deleted == false).ToList();
+            }
+        }
+        #endregion
+
+        #region Update
+        public bool AddFavorite(string tag, string userId)
+        {
+            using (var dbContext = new ClashCenterEntities())
+            {
+                if (!dbContext.CurrentFavorites.Any(f => f.ClashTargetId == tag && f.UserId == userId))
+                {
+                    dbContext.Favorites.Add(new Favorite()
+                    {
+                        ClashTargetID = tag,
+                        UserID = userId,
+                        Deleted = false,
+                        CreatedDate = DateTime.Now,
+                        IsInterest = false
+                    });
+                    return dbContext.SaveChanges() != 0;
+                }
+                return false;
+            }
+        }
+
+        public bool AddInterest(string tag, string userId)
+        {
+            using (var dbContext = new ClashCenterEntities())
+            {
+                if (!dbContext.CurrentFavorites.Any(f => f.ClashTargetId == tag && f.UserId == userId))
+                {
+                    dbContext.Favorites.Add(new Favorite()
+                    {
+                        ClashTargetID = tag,
+                        UserID = userId,
+                        Deleted = false,
+                        CreatedDate = DateTime.Now,
+                        IsInterest = true
+                    });
+                    return dbContext.SaveChanges() != 0;
+                } else
+                {
+                    dbContext.Favorites.FirstOrDefault(f => f.ClashTargetID == tag && f.UserID == userId).IsInterest = true;
+                    return dbContext.SaveChanges() != 0;
+                }
+            }
+        }
+
+        public bool RemoveFavorite(string tag, string userId)
+        {
+            using (var dbContext = new ClashCenterEntities())
+            {
+                if (dbContext.Favorites.Any(f => f.ClashTargetID == tag && f.UserID == userId))
+                {
+                    foreach (var favorite in dbContext.Favorites.Where(f => f.ClashTargetID == tag && f.UserID == userId))
+                    {
+                        favorite.Deleted = true;
+                    }
+                    return dbContext.SaveChanges() != 0;
+                }
+                return false;
+            }
+        }
+
+        public bool RemoveInterest(string tag, string userId)
+        {
+            using (var dbContext = new ClashCenterEntities())
+            {
+                if (dbContext.Favorites.Any(f => f.ClashTargetID == tag && f.UserID == userId))
+                {
+                    foreach (var favorite in dbContext.Favorites.Where(f => f.ClashTargetID == tag && f.UserID == userId))
+                    {
+                        favorite.IsInterest = false;
+                    }
+                    return dbContext.SaveChanges() != 0;
+                }
+                return false;
             }
         }
         #endregion

@@ -103,14 +103,19 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClanController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Models\RecieveObjects\FavoriteRequest.cs" />
     <Compile Include="Models\RecieveObjects\UserViewModel.cs" />
+    <Compile Include="Models\ResponseObjects\FavoriteViewModel.cs" />
     <Compile Include="Models\ResponseObjects\LocationViewModel.cs" />
+    <Compile Include="Models\ResponseObjects\UserDetailsResponseViewModel.cs" />
     <Compile Include="Models\ResponseObjects\UserResponseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RecieveObjects\ClanSearch.cs" />

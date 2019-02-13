@@ -12,13 +12,10 @@ namespace clashCenter.Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Favorite
+    public partial class CurrentFavorite
     {
-        public int FavoriteID { get; set; }
-        public string UserID { get; set; }
-        public string ClashTargetID { get; set; }
-        public System.DateTime CreatedDate { get; set; }
+        public string UserId { get; set; }
+        public string ClashTargetId { get; set; }
         public bool IsInterest { get; set; }
-        public bool Deleted { get; set; }
     }
 }

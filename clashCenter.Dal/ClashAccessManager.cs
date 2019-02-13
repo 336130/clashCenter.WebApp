@@ -27,13 +27,28 @@ namespace clashCenter.Dal
             var responseFromServer = MakeWebRequest(url, _clanSearchKey);
             ClanSearchResults retVal = JsonConvert.DeserializeObject<ClanSearchResults>(responseFromServer);
             //GetAndSaveFullClanDetails(retVal.items);
-            GetFavoritesAndInterestsForUser(userId,retVal);
+            if (userId != null)
+            {
+                GetFavoritesAndInterestsForUser(userId, retVal);
+            }
             return retVal;
         }
 
         private void GetFavoritesAndInterestsForUser(string userId, ClanSearchResults results)
         {
-
+            using (var dbContext = new ClashCenterEntities())
+            {
+                for (var i = 0; i < results.items.Count(); i++)
+                {
+                    var clan = results.items[i];
+                    if (dbContext.CurrentFavorites.Any(f => f.UserId == userId && f.ClashTargetId == clan.Tag))
+                    {
+                        var favorite = dbContext.CurrentFavorites.FirstOrDefault(f => f.UserId == userId && f.ClashTargetId == clan.Tag);
+                        clan.IsFavorite = true;
+                        clan.IsInterest = favorite.IsInterest;
+                    }
+                }
+            }
         }
         #endregion
 
@@ -44,17 +59,18 @@ namespace clashCenter.Dal
             {
                 Task.Run(() =>
                 {
-                    GetAndSaveFullClanDetails(clan);
+                    GetAndSaveFullClanDetails(clan.Tag);
                 });
             }
         }
 
-        public void GetAndSaveFullClanDetails(ClanSearchResultsClan clan)
+        public Models.ClashResponse.Clan GetAndSaveFullClanDetails(string clanTag)
         {
-            string url = "clans/" + HttpUtility.UrlEncode(clan.Tag);
+            string url = "clans/" + HttpUtility.UrlEncode(clanTag);
             var responseFromServer = MakeWebRequest(url, _clanKey);
             var retVal = JsonConvert.DeserializeObject<Models.ClashResponse.Clan>(responseFromServer);
             new DatabaseAccessManager().SaveClanInfo(retVal);
+            return retVal;
         }
         #endregion
 

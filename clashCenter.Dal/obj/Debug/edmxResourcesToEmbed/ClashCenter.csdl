@@ -29,6 +29,7 @@
       <End Role="ClanHistoryMember" EntitySet="ClanHistoryMembers" />
     </AssociationSet>
     <EntitySet Name="Favorites" EntityType="ClashCenterModel.Favorite" />
+    <EntitySet Name="CurrentFavorites" EntityType="ClashCenterModel.CurrentFavorite" />
   </EntityContainer>
   <EntityType Name="Clan">
     <Key>
@@ -125,11 +126,18 @@
     </Key>
     <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="FavoriteType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ClashType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ClashTargetID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="CreaatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Pinned" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsInterest" Type="Boolean" Nullable="false" />
     <Property Name="Deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CurrentFavorite">
+    <Key>
+      <PropertyRef Name="ClashTargetId" />
+      <PropertyRef Name="IsInterest" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClashTargetId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="IsInterest" Type="Boolean" Nullable="false" />
   </EntityType>
 </Schema>

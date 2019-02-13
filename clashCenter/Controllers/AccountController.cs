@@ -1,4 +1,5 @@
 ﻿using clashCenter.Business;
+using clashCenter.Helpers;
 using clashCenter.Models.RecieveObjects;
 using clashCenter.Models.ResponseObjects;
 using System;
@@ -13,7 +14,7 @@ namespace clashCenter.Controllers
 {
     public class AccountController : ApiController
     {
-        private BusinessManager _businessManager;
+        private BusinessManager _businessManager { get { return new BusinessManager(); } }
 
         [HttpPost]
         public UserResponseViewModel LoginUser(UserViewModel user)
@@ -30,7 +31,6 @@ namespace clashCenter.Controllers
         [HttpPost]
         public UserResponseViewModel Refresh()
         {
-            _businessManager = new BusinessManager();
             var auth = HttpContext.Current.Request.Headers["Authorization"];
             var response = _businessManager.UpdateTokenExpiry(auth.Replace("Bearer ", ""));
             return new UserResponseViewModel(false,null,response );
@@ -40,6 +40,24 @@ namespace clashCenter.Controllers
        public UserResponseViewModel Register(UserViewModel user)
         {
             return new UserResponseViewModel(false,null, new BusinessManager().CreateUser(user.Username, user.Password));
+        }
+
+        [HttpPost]
+        public UserDetailsResponseViewModel GetUserDetails()
+        {
+            var retVal = new UserDetailsResponseViewModel();
+
+            var userId = UserHelper.UserId;
+            var favorites = _businessManager.GetUserDetails(userId);
+            var username = _businessManager.GetUsernameFromUserId(userId);
+
+            retVal.UserID = userId;
+            retVal.Username = username;
+            foreach (var favorite in favorites)
+            {
+                retVal.Favorites.Add(new FavoriteViewModel(_businessManager.GetClan(favorite.ClashTargetID),favorite.IsInterest));
+            }
+            return retVal;
         }
     }
 }

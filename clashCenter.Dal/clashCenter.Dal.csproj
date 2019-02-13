@@ -108,6 +108,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClashCenter.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CurrentFavorite.cs">
+      <DependentUpon>ClashCenter.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseAccessManager.cs" />
     <Compile Include="Favorite.cs">
       <DependentUpon>ClashCenter.tt</DependentUpon>
