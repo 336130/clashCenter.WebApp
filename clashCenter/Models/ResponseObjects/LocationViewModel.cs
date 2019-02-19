@@ -17,6 +17,15 @@ namespace clashCenter.Models.ResponseObjects
             CountryCode = loc.CountryCode;
         }
 
+        public LocationViewModel(Dal.Models.ClashResponse.Location location)
+        {
+            ID = location.id;
+            IsCountry = location.isCountry;
+            Name = location.name;
+            CountryCode = location.countryCode;
+
+        }
+
         public int ID { get; set; }
         public string Name { get; set; }
         public bool IsCountry { get; set; }

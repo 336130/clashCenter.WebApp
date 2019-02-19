@@ -50,6 +50,23 @@ namespace clashCenter.Dal
                 }
             }
         }
+
+        public ClanWithHistory GetClanWithHistory(string userId,string tag)
+        {
+            var retVal = new ClanWithHistory();
+            retVal.Latest = GetAndSaveFullClanDetails(tag);
+            using (var dbContext = new ClashCenterEntities())
+            {
+                if (dbContext.Favorites.Any(f => f.UserID == userId && f.ClashTargetID == tag)){
+                    var favorite = dbContext.Favorites.FirstOrDefault(f => f.UserID == userId && f.ClashTargetID == tag);
+                    retVal.Latest.IsFavorite = true;
+                    retVal.Latest.IsInterest = favorite.IsInterest;
+                }
+            }
+            retVal.History = new List<Models.ClashResponse.Clan>();
+                //retVal.History = new DatabaseAccessManager().GetClanHistory(tag);
+            return retVal;
+        }
         #endregion
 
         #region SaveDetails

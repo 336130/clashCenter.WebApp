@@ -17,6 +17,7 @@ namespace clashCenter.Business
 
         }
 
+        #region Clan
         public ClanSearchResults SearchForClan(string name,string warFrequency, int minMembers,int maxMembers, int minClanPoints, int minClanLevel, int location,string userId)
         {
             List<Parameter> par = new List<Parameter>();
@@ -37,6 +38,12 @@ namespace clashCenter.Business
         {
             return new ClashAccessManager().GetAndSaveFullClanDetails(clanTag);
         }
+
+        public ClanWithHistory GetClanWithHistory(string userId,string tag)
+        {
+            return new ClashAccessManager().GetClanWithHistory(userId,tag);
+        }
+        #endregion
 
         #region Favorites
         public bool AddFavorite(string tag, string userId)

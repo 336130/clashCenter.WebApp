@@ -111,8 +111,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Models\RecieveObjects\ClanRequest.cs" />
     <Compile Include="Models\RecieveObjects\FavoriteRequest.cs" />
     <Compile Include="Models\RecieveObjects\UserViewModel.cs" />
+    <Compile Include="Models\ResponseObjects\BadgeViewModel.cs" />
+    <Compile Include="Models\ResponseObjects\ClanMemberViewModel.cs" />
+    <Compile Include="Models\ResponseObjects\ClanViewModel.cs" />
+    <Compile Include="Models\ResponseObjects\ClanWithHistoryViewModel.cs" />
     <Compile Include="Models\ResponseObjects\FavoriteViewModel.cs" />
     <Compile Include="Models\ResponseObjects\LocationViewModel.cs" />
     <Compile Include="Models\ResponseObjects\UserDetailsResponseViewModel.cs" />

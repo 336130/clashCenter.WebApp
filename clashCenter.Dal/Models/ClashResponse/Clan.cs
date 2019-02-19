@@ -25,6 +25,8 @@ namespace clashCenter.Dal.Models.ClashResponse
         public int WarLosses { get; set; }
         public bool IsWarLogPublic { get; set; }
         public string Description { get; set; }
-        public List<ClanMembers> MemberList { get; set; }
+        public List<ClanMember> MemberList { get; set; }
+        public bool IsInterest { get; set; }
+        public bool IsFavorite { get; set; }
     }
 }

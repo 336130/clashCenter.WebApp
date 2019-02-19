@@ -1,6 +1,8 @@
 ﻿using clashCenter.Business;
+using clashCenter.Dal.Models;
 using clashCenter.Helpers;
 using clashCenter.Models.RecieveObjects;
+using clashCenter.Models.ResponseObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,12 @@ namespace clashCenter.Controllers
     public class ClanController : ApiController 
     {
         private BusinessManager _businessManager { get { return new BusinessManager(); } }
+        
+        [HttpPost]
+        public ClanWithHistoryViewModel GetClan(ClanRequest request)
+        {
+            return new ClanWithHistoryViewModel(_businessManager.GetClanWithHistory(UserHelper.UserId,request.tag));
+        }
 
         [HttpPost]
         public bool AddFavorite(FavoriteRequest request)

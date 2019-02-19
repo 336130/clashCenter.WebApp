@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clashCenter.Dal.Models.ClashResponse
 {
-    public class ClanMembers
+    public class ClanMember
     {
         public string Tag { get; set; }
         public string Name { get; set; }
@@ -17,6 +17,6 @@ namespace clashCenter.Dal.Models.ClashResponse
         public int ClanRank { get; set; }
         public int PreviousClanRank { get; set; }
         public int Donations { get; set; }
-        public int DonationsRecieved { get; set; }
+        public int DonationsReceived { get; set; }
     }
 }

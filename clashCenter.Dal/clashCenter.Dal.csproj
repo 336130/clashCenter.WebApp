@@ -119,9 +119,10 @@
       <DependentUpon>ClashCenter.tt</DependentUpon>
     </Compile>
     <Compile Include="LocationManager.cs" />
+    <Compile Include="Models\ClanWithHistory.cs" />
     <Compile Include="Models\ClashResponse\Badge.cs" />
     <Compile Include="Models\ClashResponse\Clan.cs" />
-    <Compile Include="Models\ClashResponse\ClanMembers.cs" />
+    <Compile Include="Models\ClashResponse\ClanMember.cs" />
     <Compile Include="Models\ClashResponse\ClanSearchResultsClan.cs" />
     <Compile Include="Models\ClashResponse\Location.cs" />
     <Compile Include="Models\ClashResponse\ClanSearchResults.cs" />

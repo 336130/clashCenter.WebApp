@@ -1,6 +1,8 @@
 ﻿using clashCenter.Business;
 using clashCenter.Dal.Models.ClashResponse;
 using clashCenter.Helpers;
+using clashCenter.Models.RecieveObjects;
+using clashCenter.Models.ResponseObjects;
 using clashCenter.Web.Models.RecieveObjects;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,7 @@ namespace clashCenter.Controllers
                                                    searchParams.location,
                                                    UserHelper.UserId
                                                    );
+            retVal.items = retVal.items.OrderBy(c => c.IsFavorite).ToList();
             return retVal;
         }
     }
