@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClashCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsCountry" Type="Boolean" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ClanHistories" Relationship="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4" FromRole="Location" ToRole="ClanHistory" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ClashCenterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="Clans" EntityType="ClashCenterModel.Clan" />
+    <EntitySet Name="ClanHistories" EntityType="ClashCenterModel.ClanHistory" />
+    <AssociationSet Name="FK__ClanHisto__ClanI__4D94879B" Association="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B">
+      <End Role="Clan" EntitySet="Clans" />
+      <End Role="ClanHistory" EntitySet="ClanHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClanHisto__Locat__4E88ABD4" Association="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="ClanHistory" EntitySet="ClanHistories" />
+    </AssociationSet>
+    <EntitySet Name="ClanHistoryMembers" EntityType="ClashCenterModel.ClanHistoryMember" />
+    <AssociationSet Name="FK__ClanHisto__ClanH__52593CB8" Association="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8">
+      <End Role="ClanHistory" EntitySet="ClanHistories" />
+      <End Role="ClanHistoryMember" EntitySet="ClanHistoryMembers" />
+    </AssociationSet>
+    <EntitySet Name="Favorites" EntityType="ClashCenterModel.Favorite" />
+    <EntitySet Name="CurrentFavorites" EntityType="ClashCenterModel.CurrentFavorite" />
+  </EntityContainer>
+  <EntityType Name="Clan">
+    <Key>
+      <PropertyRef Name="ClanID" />
+    </Key>
+    <Property Name="ClanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClanTag" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FirstPolled" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="ClanHistories" Relationship="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B" FromRole="Clan" ToRole="ClanHistory" />
+  </EntityType>
+  <EntityType Name="ClanHistory">
+    <Key>
+      <PropertyRef Name="ClanHistoryID" />
+    </Key>
+    <Property Name="ClanHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClanID" Type="Int32" />
+    <Property Name="ClanName" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="ClanLevel" Type="Int32" Nullable="false" />
+    <Property Name="ClanPoints" Type="Int32" Nullable="false" />
+    <Property Name="ClanVersusPoints" Type="Int32" Nullable="false" />
+    <Property Name="MemberCount" Type="Int32" Nullable="false" />
+    <Property Name="ClanType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="RequiredTrophies" Type="Int32" Nullable="false" />
+    <Property Name="WarFrequency" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="WarWinStreak" Type="Int32" Nullable="false" />
+    <Property Name="WarWins" Type="Int32" Nullable="false" />
+    <Property Name="WarTies" Type="Int32" Nullable="false" />
+    <Property Name="WarLosses" Type="Int32" Nullable="false" />
+    <Property Name="IsWarLogPublic" Type="Boolean" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clan" Relationship="ClashCenterModel.FK__ClanHisto__ClanI__4D94879B" FromRole="ClanHistory" ToRole="Clan" />
+    <NavigationProperty Name="Location" Relationship="ClashCenterModel.FK__ClanHisto__Locat__4E88ABD4" FromRole="ClanHistory" ToRole="Location" />
+    <NavigationProperty Name="ClanHistoryMembers" Relationship="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8" FromRole="ClanHistory" ToRole="ClanHistoryMember" />
+    <Property Name="DatePolled" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <Association Name="FK__ClanHisto__ClanI__4D94879B">
+    <End Type="ClashCenterModel.Clan" Role="Clan" Multiplicity="0..1" />
+    <End Type="ClashCenterModel.ClanHistory" Role="ClanHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="ClanID" />
+      </Principal>
+      <Dependent Role="ClanHistory">
+        <PropertyRef Name="ClanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClanHisto__Locat__4E88ABD4">
+    <End Type="ClashCenterModel.Location" Role="Location" Multiplicity="0..1" />
+    <End Type="ClashCenterModel.ClanHistory" Role="ClanHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClanHistory">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ClanHistoryMember">
+    <Key>
+      <PropertyRef Name="ClanHistoryMemberID" />
+    </Key>
+    <Property Name="ClanHistoryMemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClanHistoryID" Type="Int32" />
+    <Property Name="MemberTag" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MemberName" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ExpLevel" Type="Int32" Nullable="false" />
+    <Property Name="Trophies" Type="Int32" Nullable="false" />
+    <Property Name="VersusTrophies" Type="Int32" Nullable="false" />
+    <Property Name="ClanRole" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClanRank" Type="Int32" Nullable="false" />
+    <Property Name="PreviousClanRank" Type="Int32" Nullable="false" />
+    <Property Name="Donations" Type="Int32" Nullable="false" />
+    <Property Name="DonationsRecieved" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ClanHistory" Relationship="ClashCenterModel.FK__ClanHisto__ClanH__52593CB8" FromRole="ClanHistoryMember" ToRole="ClanHistory" />
+  </EntityType>
+  <Association Name="FK__ClanHisto__ClanH__52593CB8">
+    <End Type="ClashCenterModel.ClanHistory" Role="ClanHistory" Multiplicity="0..1" />
+    <End Type="ClashCenterModel.ClanHistoryMember" Role="ClanHistoryMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClanHistory">
+        <PropertyRef Name="ClanHistoryID" />
+      </Principal>
+      <Dependent Role="ClanHistoryMember">
+        <PropertyRef Name="ClanHistoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="FavoriteID" />
+    </Key>
+    <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClashTargetID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsInterest" Type="Boolean" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CurrentFavorite">
+    <Key>
+      <PropertyRef Name="ClashTargetId" />
+      <PropertyRef Name="IsInterest" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClashTargetId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="IsInterest" Type="Boolean" Nullable="false" />
+  </EntityType>
+</Schema>

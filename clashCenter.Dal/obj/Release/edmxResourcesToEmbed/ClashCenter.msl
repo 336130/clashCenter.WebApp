@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClashCenterModelStoreContainer" CdmEntityContainer="ClashCenterEntities">
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="ClashCenterModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsCountry" ColumnName="IsCountry" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clans">
+      <EntityTypeMapping TypeName="ClashCenterModel.Clan">
+        <MappingFragment StoreEntitySet="Clan">
+          <ScalarProperty Name="FirstPolled" ColumnName="FirstPolled" />
+          <ScalarProperty Name="ClanTag" ColumnName="ClanTag" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanHistories">
+      <EntityTypeMapping TypeName="ClashCenterModel.ClanHistory">
+        <MappingFragment StoreEntitySet="ClanHistory">
+          <ScalarProperty Name="DatePolled" ColumnName="DatePolled" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsWarLogPublic" ColumnName="IsWarLogPublic" />
+          <ScalarProperty Name="WarLosses" ColumnName="WarLosses" />
+          <ScalarProperty Name="WarTies" ColumnName="WarTies" />
+          <ScalarProperty Name="WarWins" ColumnName="WarWins" />
+          <ScalarProperty Name="WarWinStreak" ColumnName="WarWinStreak" />
+          <ScalarProperty Name="WarFrequency" ColumnName="WarFrequency" />
+          <ScalarProperty Name="RequiredTrophies" ColumnName="RequiredTrophies" />
+          <ScalarProperty Name="ClanType" ColumnName="ClanType" />
+          <ScalarProperty Name="MemberCount" ColumnName="MemberCount" />
+          <ScalarProperty Name="ClanVersusPoints" ColumnName="ClanVersusPoints" />
+          <ScalarProperty Name="ClanPoints" ColumnName="ClanPoints" />
+          <ScalarProperty Name="ClanLevel" ColumnName="ClanLevel" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ClanName" ColumnName="ClanName" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+          <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanHistoryMembers">
+      <EntityTypeMapping TypeName="ClashCenterModel.ClanHistoryMember">
+        <MappingFragment StoreEntitySet="ClanHistoryMember">
+          <ScalarProperty Name="DonationsRecieved" ColumnName="DonationsRecieved" />
+          <ScalarProperty Name="Donations" ColumnName="Donations" />
+          <ScalarProperty Name="PreviousClanRank" ColumnName="PreviousClanRank" />
+          <ScalarProperty Name="ClanRank" ColumnName="ClanRank" />
+          <ScalarProperty Name="ClanRole" ColumnName="ClanRole" />
+          <ScalarProperty Name="VersusTrophies" ColumnName="VersusTrophies" />
+          <ScalarProperty Name="Trophies" ColumnName="Trophies" />
+          <ScalarProperty Name="ExpLevel" ColumnName="ExpLevel" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberTag" ColumnName="MemberTag" />
+          <ScalarProperty Name="ClanHistoryID" ColumnName="ClanHistoryID" />
+          <ScalarProperty Name="ClanHistoryMemberID" ColumnName="ClanHistoryMemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favorites">
+      <EntityTypeMapping TypeName="ClashCenterModel.Favorite">
+        <MappingFragment StoreEntitySet="Favorites">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="IsInterest" ColumnName="IsInterest" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ClashTargetID" ColumnName="ClashTargetID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentFavorites">
+      <EntityTypeMapping TypeName="ClashCenterModel.CurrentFavorite">
+        <MappingFragment StoreEntitySet="CurrentFavorites">
+          <ScalarProperty Name="IsInterest" ColumnName="IsInterest" />
+          <ScalarProperty Name="ClashTargetId" ColumnName="ClashTargetId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
