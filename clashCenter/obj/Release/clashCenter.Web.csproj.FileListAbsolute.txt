@@ -188,3 +188,8 @@ D:\Development\Github\clashCenterWebApp\clashCenter\obj\Release\clashCenter.Web.
 D:\Development\Github\clashCenterWebApp\clashCenter\obj\Release\clashCenter.Web.csproj.CopyComplete
 D:\Development\Github\clashCenterWebApp\clashCenter\obj\Release\clashCenter.dll
 D:\Development\Github\clashCenterWebApp\clashCenter\obj\Release\clashCenter.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Cors.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Web.Cors.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Cors.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Host.SystemWeb.xml

@@ -27,3 +27,7 @@ D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Release\clashCe
 D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Release\clashCenter.Business.csproj.CopyComplete
 D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Release\clashCenter.Business.dll
 D:\Development\Github\clashCenterWebApp\clashCenter.Business\obj\Release\clashCenter.Business.pdb
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Release\Microsoft.Owin.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Release\Microsoft.Owin.Host.SystemWeb.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Release\Microsoft.Owin.xml
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Release\Microsoft.Owin.Host.SystemWeb.xml

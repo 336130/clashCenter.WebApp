@@ -75,7 +75,7 @@ namespace clashCenter.Business
         #endregion
 
         #region Account
-        public bool CreateUser(string username, string password)
+        public UserResponse CreateUser(string username, string password)
         {
             return new AccountManager().CreateUser(username, password);
         }

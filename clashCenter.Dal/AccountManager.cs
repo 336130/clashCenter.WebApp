@@ -60,7 +60,7 @@ namespace clashCenter.Dal
             return UserManager.Find(email, password);
         }
 
-        public bool CreateUser(string username, string password)
+        public UserResponse CreateUser(string username, string password)
         {
             var manager = UserManager;
 
@@ -70,12 +70,17 @@ namespace clashCenter.Dal
             if (result.Succeeded)
             {
                 var userIdentity = manager.CreateIdentity(newUser, DefaultAuthenticationTypes.ExternalBearer);
-                    _authenticationManager.SignIn(
-                                              new AuthenticationProperties() { },
-                                              userIdentity);
+
+                var tokenPath = HttpContext.Current.Request.Url.Host + "/api/token";
+                var data = $"grant_type=password&password={password}&username={username}";
+
+                using (var client = new WebClient())
+                {
+                    return new UserResponse(false,"",client.UploadString(tokenPath, data));
+                }
             }
 
-            return result.Succeeded;
+            return new UserResponse(true, $"Could not create user for {username}", "");
         }
 
         public string GetUsername()

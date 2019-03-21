@@ -12,14 +12,14 @@ namespace clashCenter.Dal.Models
         {
 
         }
-        public UserResponse(bool error, string errors, string token)
+        public UserResponse(bool error, string errors, string message)
         {
             Error = error;
-            Errors = Errors;
-            Token = token;
+            Errors = errors;
+            Message = message;
         }
         public bool Error { get; set; }
         public string Errors { get; set; }
-        public string Token { get; set; }
+        public string Message { get; set; }
     }
 }

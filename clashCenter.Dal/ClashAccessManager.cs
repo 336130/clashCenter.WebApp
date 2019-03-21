@@ -38,14 +38,14 @@ namespace clashCenter.Dal
         {
             using (var dbContext = new ClashCenterEntities())
             {
-                for (var i = 0; i < results.items.Count(); i++)
+                var userFavourites = dbContext.CurrentFavorites.Where(f => f.UserId == userId).ToList();
+
+                for (var i = 0; i < userFavourites.Count(); i++)
                 {
-                    var clan = results.items[i];
-                    if (dbContext.CurrentFavorites.Any(f => f.UserId == userId && f.ClashTargetId == clan.Tag))
-                    {
-                        var favorite = dbContext.CurrentFavorites.FirstOrDefault(f => f.UserId == userId && f.ClashTargetId == clan.Tag);
+                    var clan = results.items.FirstOrDefault(f => f.Tag == userFavourites[i].ClashTargetId);
+                    if (clan != null){ 
                         clan.IsFavorite = true;
-                        clan.IsInterest = favorite.IsInterest;
+                        clan.IsInterest = userFavourites.FirstOrDefault(f => f.ClashTargetId == clan.Tag).IsInterest;
                     }
                 }
             }

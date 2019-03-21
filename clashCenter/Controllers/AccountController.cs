@@ -24,7 +24,7 @@ namespace clashCenter.Controllers
        [HttpPost]
        public UserResponseViewModel Register(UserViewModel user)
         {
-            return new UserResponseViewModel(false,null, new BusinessManager().CreateUser(user.Username, user.Password));
+            return new UserResponseViewModel(new BusinessManager().CreateUser(user.Username, user.Password));
         }
 
         [HttpPost]
