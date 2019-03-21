@@ -27,3 +27,7 @@ D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft
 D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.Owin.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.Owin.xml
+D:\Development\Github\clashCenterWebApp\clashCenter.Business\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml

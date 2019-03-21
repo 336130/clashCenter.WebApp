@@ -1,6 +1,5 @@
 ﻿using clashCenter.Business;
 using clashCenter.Dal.Models.ClashResponse;
-using clashCenter.Helpers;
 using clashCenter.Models.RecieveObjects;
 using clashCenter.Models.ResponseObjects;
 using clashCenter.Web.Models.RecieveObjects;
@@ -28,7 +27,7 @@ namespace clashCenter.Controllers
                                                    searchParams.minClanPoints,
                                                    searchParams.minClanLevel,
                                                    searchParams.location,
-                                                   UserHelper.UserId
+                                                   _businessManager.GetUserId()
                                                    );
             retVal.items = retVal.items.OrderBy(c => c.IsFavorite).ToList();
             return retVal;

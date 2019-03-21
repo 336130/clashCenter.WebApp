@@ -188,3 +188,8 @@ D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.AspNet.Identit
 D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.xml
 D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Cors.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\System.Web.Cors.dll
+D:\Development\Github\clashCenterWebApp\clashCenter\bin\Microsoft.Owin.Cors.xml

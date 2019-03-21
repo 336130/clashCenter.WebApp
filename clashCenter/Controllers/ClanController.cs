@@ -1,6 +1,5 @@
 ﻿using clashCenter.Business;
 using clashCenter.Dal.Models;
-using clashCenter.Helpers;
 using clashCenter.Models.RecieveObjects;
 using clashCenter.Models.ResponseObjects;
 using System;
@@ -19,31 +18,31 @@ namespace clashCenter.Controllers
         [HttpPost]
         public ClanWithHistoryViewModel GetClan(ClanRequest request)
         {
-            return new ClanWithHistoryViewModel(_businessManager.GetClanWithHistory(UserHelper.UserId,request.tag));
+            return new ClanWithHistoryViewModel(_businessManager.GetClanWithHistory(_businessManager.GetUserId(),request.tag));
         }
 
         [HttpPost]
         public bool AddFavorite(FavoriteRequest request)
         {
-            return _businessManager.AddFavorite(request.tag, UserHelper.UserId);
+            return _businessManager.AddFavorite(request.tag, _businessManager.GetUserId());
         }
 
         [HttpPost]
         public bool AddInterest(FavoriteRequest request)
         {
-            return _businessManager.AddInterest(request.tag, UserHelper.UserId);
+            return _businessManager.AddInterest(request.tag, _businessManager.GetUserId());
         }
 
         [HttpPost]
         public bool RemoveFavorite(FavoriteRequest request)
         {
-            return _businessManager.RemoveFavorite(request.tag, UserHelper.UserId);
+            return _businessManager.RemoveFavorite(request.tag, _businessManager.GetUserId());
         }
 
         [HttpPost]
         public bool RemoveInterest(FavoriteRequest request)
         {
-            return _businessManager.RemoveInterest(request.tag, UserHelper.UserId);
+            return _businessManager.RemoveInterest(request.tag, _businessManager.GetUserId());
         }
     }
 }

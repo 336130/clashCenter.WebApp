@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
 using System;
 using System.Collections.Generic;
@@ -14,108 +15,88 @@ using System.Web;
 
 namespace clashCenter.Dal
 {
-    public  class AccountManager
+    public class AccountManager
     {
         private UserManager<IdentityUser> _userManager { get; set; }
-        private UserManager<IdentityUser> GetUserManager()
+        private UserManager<IdentityUser> UserManager
         {
-            if (_userManager == null)
+            get
             {
-                var provider = new DpapiDataProtectionProvider("ClashCenter");
-                _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
-                _userManager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(provider.Create("authorisation"));
+                if (_userManager == null)
+                {
+                    var provider = new DpapiDataProtectionProvider("ClashCenter");
+                    _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+                    _userManager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(provider.Create("authorisation"));
+                }
+                return _userManager;
             }
-            return _userManager;
         }
-        
-        public string CreateUser(string username, string password)
-        {
-            var manager = GetUserManager();
 
-            var newUser = new IdentityUser() { UserName = username};
+        private IAuthenticationManager _authenticationManager
+        {
+            get
+            {
+                return HttpContext.Current.GetOwinContext().Authentication;
+            }
+        }
+
+        private IdentityUser _currentUser
+        {
+            get
+            {
+                var claim = _authenticationManager?.User?.Claims.FirstOrDefault(c => c.Type == "username");
+                var user = claim != null ? UserManager.FindByName(claim.Value) : null; ;
+                return user;
+            }
+        }
+
+        public IdentityUser GetUser()
+        {
+            return _currentUser;
+        }
+
+        public IdentityUser GetUser(string email, string password)
+        {
+            return UserManager.Find(email, password);
+        }
+
+        public bool CreateUser(string username, string password)
+        {
+            var manager = UserManager;
+
+            var newUser = new IdentityUser() { UserName = username };
             IdentityResult result = manager.Create(newUser, password);
 
             if (result.Succeeded)
             {
-                return LoginUser(username, password);
+                var userIdentity = manager.CreateIdentity(newUser, DefaultAuthenticationTypes.ExternalBearer);
+                    _authenticationManager.SignIn(
+                                              new AuthenticationProperties() { },
+                                              userIdentity);
             }
 
-            return "";
-        }
-        
-        public string LoginUser(string email, string password)
-        {
-            var retVal = "";
-            var manager = GetUserManager();
-            var user = manager.Find(email, password);
-
-            if (user != null)
-            {
-                retVal = manager.GenerateUserToken("login", user.Id);
-                TokenCache.Tokens.Add(retVal, new TokenValue(user.Id));
-            }
-            DisposeOfOldTokens();
-            return retVal;
+            return result.Succeeded;
         }
 
-        public string GetUserIDFromToken(string token)
+        public string GetUsername()
         {
-            TokenValue tokenValue;
-            string retVal = ""; ;
-            if (TokenCache.Tokens.TryGetValue(token, out tokenValue))
-            {
-                if (tokenValue.LastUsed > DateTime.Now.AddDays(-14)){
-                    retVal = tokenValue.UserId;
-                }
-                else
-                {
-                    TokenCache.Tokens.Remove(token);
-                }
-            }
-            return retVal;
+            return _currentUser?.UserName;
         }
 
-        public string GetUsernameFromUserId(string userId)
+        public string GetUserID()
         {
-            var manager = GetUserManager();
-            return manager.FindById(userId)?.UserName;
-
+            return _currentUser?.Id;
         }
 
-        public void DisposeOfOldTokens()
+        public List<Favorite> GetUserDetails()
         {
-            Task.Run(() => {
-                List<string> oldTokens = TokenCache.Tokens.Where(t => t.Value.LastUsed < DateTime.Now.AddDays(-14)).Select(t => t.Key).ToList();
-                foreach (string token in oldTokens)
-                {
-                    TokenCache.Tokens.Remove(token);
-                }
-            });
+            return new DatabaseAccessManager().GetFavorites(GetUserID());
         }
 
-        public List<Favorite> GetUserDetails(string userId)
+        public void LogoutUser()
         {
-            return new DatabaseAccessManager().GetFavorites(userId);
-        }
-
-        public string UpdateTokenExpiry(string token)
-        {
-            TokenValue tokenValue;
-            string retVal = "";
-            if (TokenCache.Tokens.TryGetValue(token,out tokenValue))
-            {
-                retVal = token;
-                tokenValue.LastUsed = DateTime.Now;
-            }
-            return retVal;
-        }
-
-        public bool LogoutUser(string token)
-        {
-            if (TokenCache.Tokens.ContainsKey(token)){
-                 return TokenCache.Tokens.Remove(token);
-            }
-            return true;
+            _authenticationManager.SignOut();
         }
     }
 }
+

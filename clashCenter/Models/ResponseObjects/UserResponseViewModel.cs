@@ -12,7 +12,7 @@ namespace clashCenter.Models.ResponseObjects
         {
 
         }
-        public UserResponseViewModel(bool error, string errors, string message)
+        public UserResponseViewModel(bool error, string errors, bool message)
         {
             Error = error;
             Errors = Errors;
@@ -20,6 +20,6 @@ namespace clashCenter.Models.ResponseObjects
         }
         public bool Error { get; set; }
         public string Errors { get; set; }
-        public string Message { get; set; }
+        public bool Message { get; set; }
     }
 }

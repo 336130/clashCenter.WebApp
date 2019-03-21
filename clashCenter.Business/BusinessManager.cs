@@ -34,6 +34,7 @@ namespace clashCenter.Business
             return new ClashAccessManager().SearchForClans(par, userId);
         }
 
+
         public Dal.Models.ClashResponse.Clan GetClan(string clanTag)
         {
             return new ClashAccessManager().GetAndSaveFullClanDetails(clanTag);
@@ -74,39 +75,29 @@ namespace clashCenter.Business
         #endregion
 
         #region Account
-        public string CreateUser(string username, string password)
+        public bool CreateUser(string username, string password)
         {
             return new AccountManager().CreateUser(username, password);
         }
 
-        public string LoginUser(string email, string password)
+        public void LogoutUser()
         {
-            return new AccountManager().LoginUser(email, password);
+             new AccountManager().LogoutUser();
         }
 
-        public bool LogoutUser(string token)
+        public string GetUserId()
         {
-            return new AccountManager().LogoutUser(token);
+            return new AccountManager().GetUserID();
         }
 
-        public string GetUserIdFromToken(string token)
+        public string GetUsername()
         {
-            return new AccountManager().GetUserIDFromToken(token);
+            return new AccountManager().GetUsername();
         }
 
-        public string GetUsernameFromUserId(string userId)
+        public List<Favorite> GetUserDetails()
         {
-            return new AccountManager().GetUsernameFromUserId(userId);
-        }
-
-        public string UpdateTokenExpiry(string token)
-        {
-            return new AccountManager().UpdateTokenExpiry(token);
-        }
-
-        public List<Favorite> GetUserDetails(string token)
-        {
-            return new AccountManager().GetUserDetails(token);
+            return new AccountManager().GetUserDetails();
         }
         #endregion
     }
