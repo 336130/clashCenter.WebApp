@@ -127,6 +127,7 @@
     <Compile Include="Models\ClashResponse\Location.cs" />
     <Compile Include="Models\ClashResponse\ClanSearchResults.cs" />
     <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\TokenResponse.cs" />
     <Compile Include="Models\UserResponse.cs" />
     <Compile Include="TokenCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

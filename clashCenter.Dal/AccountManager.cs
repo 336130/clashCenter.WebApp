@@ -4,8 +4,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -66,22 +68,33 @@ namespace clashCenter.Dal
 
             var newUser = new IdentityUser() { UserName = username };
             IdentityResult result = manager.Create(newUser, password);
+            var tokenPath = "http://" + HttpContext.Current.Request.Url.Host + "/api/token";
 
             if (result.Succeeded)
             {
                 var userIdentity = manager.CreateIdentity(newUser, DefaultAuthenticationTypes.ExternalBearer);
 
-                var tokenPath = HttpContext.Current.Request.Url.Host + "/api/token";
+                tokenPath = "http://" + HttpContext.Current.Request.Url.Host + "/api/token";
                 var data = $"grant_type=password&password={password}&username={username}";
 
-                using (var client = new WebClient())
+                var request = WebRequest.Create(tokenPath);
+                request.Method = "POST";
+                var bodyStream = request.GetRequestStream();
+                var queryBytes = Encoding.ASCII.GetBytes(data);
+                bodyStream.Write(queryBytes, 0, queryBytes.Length);
+                bodyStream.Close();
+
+                using (var response = request.GetResponse())
                 {
-                    return new UserResponse(false,"",client.UploadString(tokenPath, data));
+                    var stream = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                    var token = JsonConvert.DeserializeObject<TokenResponse>(stream);
+                    return new UserResponse(false, "", token.access_token);
                 }
             }
 
             return new UserResponse(true, $"Could not create user for {username}", "");
         }
+        
 
         public string GetUsername()
         {
