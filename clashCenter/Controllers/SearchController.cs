@@ -16,7 +16,7 @@ namespace clashCenter.Controllers
     public class SearchController : ApiController
     {
         private BusinessManager _businessManager { get { return new BusinessManager(); } }
-
+        
         [HttpPost]
         public ClanSearchResults SearchForClan(ClanSearch searchParams)
         {
